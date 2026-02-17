@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinball CTL | Build, Test, and Run Homebrew Pinball</title>
+  <meta name="description" content="Pinball CTL is a browser-based control platform for homebrew pinball: map hardware, author rules/scoring/lighting/media, and sync deterministic runtime behavior to ESP32-S3.">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Pinball CTL home">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span>Pinball CTL</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#overview" class="nav-link active">Overview</a>
+      <a href="#why" class="nav-link">Why</a>
+      <a href="#workflow" class="nav-link">Workflow</a>
+      <a href="#modules" class="nav-link">Modules</a>
+      <a href="#safety" class="nav-link">Safety</a>
+      <a href="#requirements" class="nav-link">Requirements</a>
+      <a class="nav-cta" href="#getting-started">Get Started</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section id="overview" class="hero section hero-breakout">
+      <div class="hero-copy">
+        <p class="kicker hero-kicker">Homebrew Pinball Control Platform</p>
+        <h1>Configure hardware, author gameplay, and run displays from one interface.</h1>
+        <p class="lead">
+          Pinball CTL combines a Raspberry Pi authoring/orchestration layer with an ESP32-S3 real-time runtime layer.
+          You map hardware, build rules, author scoring and lighting, and manage media displays from a browser UI,
+          then sync to ESP for deterministic runtime behavior.
+        </p>
+        <div class="hero-pills">
+          <span>Raspberry Pi 5</span>
+          <span>ESP32-S3</span>
+          <span>Rules + Scoring + Lighting + Media</span>
+          <span>Browser-first workflows</span>
+          <span>Safety-gated output control</span>
+        </div>
+      </div>
+      <button type="button" class="shot frame overview-shot shot-click" data-full="./assets/img/dashboard.png" aria-label="Open dashboard screenshot">
+        <img src="./assets/img/dashboard.png" alt="Dashboard overview with live system status cards">
+        <span class="shot-caption">Dashboard: live machine state, sync indicators, and dependency health.</span>
+      </button>
+    </section>
+
+    <section id="why" class="section split alt">
+      <div>
+        <p class="kicker">Why Pinball CTL</p>
+        <h2>Built to close the gap for homebrew builders.</h2>
+        <p class="lead">
+          This project was created because many existing pinball control tools feel cumbersome and non-intuitive for amateur builders.
+        </p>
+        <p class="muted">
+          As a software engineer, the goal here is to bridge that gap: provide a clearer workflow, a more approachable interface, and practical module structure so builders can move from wiring to playable behavior faster.
+        </p>
+      </div>
+      <button type="button" class="shot frame shot-click" data-full="./assets/img/control-center.png" aria-label="Open Control Center screenshot">
+        <img src="./assets/img/control-center.png" alt="Control Center navigation for module workflows">
+        <span class="shot-caption">Designed to make complex pinball control workflows easier to navigate and use.</span>
+      </button>
+    </section>
+
+    <section id="workflow" class="section alt">
+      <p class="kicker">How It Works</p>
+      <h2>Author on Pi, execute on ESP.</h2>
+      <div class="workflow-columns">
+        <ol class="steps">
+          <li>Discover and map hardware in Hardware.</li>
+          <li>Build behavior in Rules and Scoring.</li>
+          <li>Design visual feedback in Lighting and Media.</li>
+          <li>Save and sync compiled state to ESP/runtime.</li>
+          <li>Monitor health, logs, and revisions from Dashboard and Logs.</li>
+        </ol>
+        <div class="workflow-divider" aria-hidden="true"></div>
+        <div class="workflow-copy">
+          <p class="muted no-top">
+            The Pi is your authoring and orchestration surface. The ESP enforces real-time behavior and safety constraints at runtime.
+          </p>
+          <p class="muted">
+            In practice, this means you edit and validate configuration in the web UI, then sync those changes to the device layer in a controlled way.
+          </p>
+          <p class="muted">
+            This split helps you iterate quickly during development while preserving predictable machine behavior during live operation.
+          </p>
+          <p class="muted"><small>Footnote: you can develop and iterate on macOS, then deploy the same project configuration to Raspberry Pi for production runtime.</small></p>
+        </div>
+      </div>
+      <div class="architecture">
+        <div class="node">Browser UI</div>
+        <div class="arrow">→</div>
+        <div class="node">Pi Services</div>
+        <div class="arrow">→</div>
+        <div class="node">Bridge</div>
+        <div class="arrow">→</div>
+        <div class="node">ESP Runtime</div>
+      </div>
+    </section>
+
+    <section id="modules" class="section">
+      <p class="kicker">Key Modules</p>
+      <h2>Distilled feature set for builders and operators.</h2>
+      <div class="module-grid">
+        <article class="module-card service-log-card">
+          <h3>Rules</h3>
+          <p>Event-driven gameplay logic with triggers, conditions, and actions. Sync modal provides explicit upload and completion feedback.</p>
+          <ul>
+            <li>Grouped trigger/condition logic</li>
+            <li>Validation and unsaved-change protection</li>
+            <li>Rules sync status visibility</li>
+          </ul>
+          <div class="shot-row">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-rules.png" aria-label="Open Rules screenshot">
+              <img src="./assets/img/feature-rules.png" alt="Rules module list and editor">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-rules-sync-uploading.png" aria-label="Open Rules sync uploading screenshot">
+              <img src="./assets/img/feature-rules-sync-uploading.png" alt="Rules sync modal uploading state">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-rules-sync-complete.png" aria-label="Open Rules sync complete screenshot">
+              <img src="./assets/img/feature-rules-sync-complete.png" alt="Rules sync modal completion state">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>Playfield</h3>
+          <p>Visual table authoring and simulation workflows for placement, interaction, and fast validation.</p>
+          <ul>
+            <li>Stage tab for visual editing and inspector controls</li>
+            <li>Options tab for dimensions and layout actions</li>
+            <li>Keyboard/event testing before live deployment</li>
+          </ul>
+          <div class="shot-row two">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-layout-stage.png" aria-label="Open Playfield stage screenshot">
+              <img src="./assets/img/feature-layout-stage.png" alt="Playfield stage tab">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-layout-options.png" aria-label="Open Playfield options screenshot">
+              <img src="./assets/img/feature-layout-options.png" alt="Playfield options tab">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>Scoring</h3>
+          <p>Purpose-built points authoring for baseline awards, progressive ramps, and combos.</p>
+          <ul>
+            <li>Base Points, Scoring Rules, Combos tabs</li>
+            <li>Hardware and event source modes</li>
+            <li>Runtime-friendly scoring behavior</li>
+          </ul>
+          <div class="shot-row two">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-scoring-scoring-rules.png" aria-label="Open Scoring rules screenshot">
+              <img src="./assets/img/feature-scoring-scoring-rules.png" alt="Scoring rules tab">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-scoring-combos.png" aria-label="Open Scoring combos screenshot">
+              <img src="./assets/img/feature-scoring-combos.png" alt="Scoring combos tab">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>Media</h3>
+          <p>Video/overlay scene authoring with display-targeted runtime and kiosk launch controls.</p>
+          <ul>
+            <li>Stage, Library, Displays, Runtime tabs</li>
+            <li>Overlay composition and playback preview</li>
+            <li>Fullscreen and small-window launch modes</li>
+          </ul>
+          <div class="shot-row four">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-stage.png" aria-label="Open Media stage screenshot">
+              <img src="./assets/img/feature-media-stage.png" alt="Media stage tab">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-library.png" aria-label="Open Media library screenshot">
+              <img src="./assets/img/feature-media-library.png" alt="Media library tab">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-displays.png" aria-label="Open Media displays screenshot">
+              <img src="./assets/img/feature-media-displays.png" alt="Media displays tab">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-runtime.png" aria-label="Open Media runtime screenshot">
+              <img src="./assets/img/feature-media-runtime.png" alt="Media runtime tab">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>Hardware</h3>
+          <p>Physical I/O mapping with explicit function assignment and safe-state controls for reliable machine behavior.</p>
+          <ul>
+            <li>Friendly names and logical function mapping</li>
+            <li>PIN safe defaults for boot/fault handling</li>
+            <li>Save and sync workflow for deterministic runtime mapping</li>
+          </ul>
+          <div class="shot-row">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-hardware.png" aria-label="Open Hardware screenshot">
+              <img src="./assets/img/feature-hardware.png" alt="Hardware module">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>ESPLink and Firmware</h3>
+          <p>Device connectivity and firmware management for keeping the ESP runtime current and verifiable.</p>
+          <ul>
+            <li>USB link status and serial diagnostics</li>
+            <li>Firmware package visibility and deployment flow</li>
+            <li>Runtime version checks and maintenance workflow</li>
+          </ul>
+          <div class="shot-row two">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-esplink.png" aria-label="Open ESPLink screenshot">
+              <img src="./assets/img/feature-esplink.png" alt="ESPLink module">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-firmware.png" aria-label="Open Firmware screenshot">
+              <img src="./assets/img/feature-firmware.png" alt="Firmware module">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>Lighting</h3>
+          <p>Scene authoring with Stage and Fixtures tabs, including timeline/pattern workflows and sync to ESP.</p>
+          <ul>
+            <li>Scene targeting and cast control</li>
+            <li>Preview-first authoring loop</li>
+            <li>Revision-aware sync flow</li>
+          </ul>
+          <div class="shot-row two">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-lighting-stage.png" aria-label="Open Lighting stage screenshot">
+              <img src="./assets/img/feature-lighting-stage.png" alt="Lighting stage tab">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-lighting-fixtures.png" aria-label="Open Lighting fixtures screenshot">
+              <img src="./assets/img/feature-lighting-fixtures.png" alt="Lighting fixtures tab">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>Audio</h3>
+          <p>Cue-based playback system for assets, outputs, and runtime audio diagnostics.</p>
+          <ul>
+            <li>Library, Cues, Outputs, and Usage Map tabs</li>
+            <li>Routing by output target and bus</li>
+            <li>Runtime visibility for active/orphan playback</li>
+          </ul>
+          <div class="shot-row two">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-audio-cues.png" aria-label="Open Audio cues screenshot">
+              <img src="./assets/img/feature-audio-cues.png" alt="Audio cues tab">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-audio-outputs.png" aria-label="Open Audio outputs screenshot">
+              <img src="./assets/img/feature-audio-outputs.png" alt="Audio outputs tab">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>Settings and Logs</h3>
+          <p>Installation-level configuration, backup/restore workflows, and runtime diagnostics.</p>
+          <ul>
+            <li>Settings and Import/Export tabbed configuration</li>
+            <li>Project migration via export/import bundles</li>
+            <li>Logs module for troubleshooting and visibility</li>
+          </ul>
+          <div class="shot-row two">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-settings-settings.png" aria-label="Open Settings screenshot">
+              <img src="./assets/img/feature-settings-settings.png" alt="Settings tab">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-logs.png" aria-label="Open Logs screenshot">
+              <img src="./assets/img/feature-logs.png" alt="Logs module">
+            </button>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <h3>Service Log</h3>
+          <p>Maintenance and service history tracking for machine operations and handover visibility.</p>
+          <ul>
+            <li>Record service actions and outcomes</li>
+            <li>Track maintenance history over time</li>
+            <li>Support operational continuity for teams</li>
+          </ul>
+          <div class="shot-row two">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-servicelog.png" aria-label="Open Service Log screenshot">
+              <img src="./assets/img/feature-servicelog.png" alt="Service Log module">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-servicelog-edit.png" aria-label="Open Service Log edit screenshot">
+              <img src="./assets/img/feature-servicelog-edit.png" alt="Service Log edit workflow">
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="safety" class="section split alt">
+      <div>
+        <p class="kicker">Safety and Reliability</p>
+        <h2>Conservative by design for real machines.</h2>
+        <ul class="checks">
+          <li>ESP runtime enforces output safety and guards.</li>
+          <li>Rules and sync workflows surface explicit status and failures.</li>
+          <li>Unsaved-change prompts reduce accidental data loss.</li>
+          <li>Dashboard provides a single operational health view.</li>
+          <li>Logs and module runtime tabs support fast troubleshooting.</li>
+        </ul>
+      </div>
+      <button type="button" class="shot frame shot-click" data-full="./assets/img/feature-hardware.png" aria-label="Open Hardware screenshot">
+        <img src="./assets/img/feature-hardware.png" alt="Hardware module showing mapping and safe-state controls">
+        <span class="shot-caption">Safety starts with explicit hardware mapping, safe states, and clear runtime visibility.</span>
+      </button>
+    </section>
+
+    <section id="requirements" class="section">
+      <p class="kicker">Requirements</p>
+      <h2>What you need to run Pinball CTL.</h2>
+      <div class="requirements-grid">
+        <article>
+          <h3>Core Hardware</h3>
+          <ul>
+            <li>Raspberry Pi 5 (host services + web UI)</li>
+            <li>ESP32-S3 (real-time I/O runtime)</li>
+            <li>USB serial connection between Pi and ESP</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Access</h3>
+          <ul>
+            <li>Modern browser on local network</li>
+            <li>Optional Wi-Fi onboarding and remote access</li>
+            <li>Display outputs for media kiosk workflows</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Runtime Dependencies</h3>
+          <ul>
+            <li>Bridge process and Pi services running</li>
+            <li>Chromium runtime for media display mode</li>
+            <li>Installed tooling visible in Dashboard Dependencies</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="getting-started" class="section cta">
+      <h2>Getting Started ...</h2>
+      <p>
+        Flash Raspberry Pi OS, install Pinball CTL from Git, run `pinballctl`, then open the web UI and start configuring.
+      </p>
+      <ol class="install-steps">
+        <li>Flash Raspberry Pi OS (64-bit) to SD card using Raspberry Pi Imager.</li>
+        <li>Boot the Pi and connect via SSH or keyboard/monitor.</li>
+        <li>Install tools and create a Python virtual environment.</li>
+        <li>Install Pinball CTL from Git and verify with `pinballctl --version`.</li>
+        <li>Start with `pinballctl start`, then open `http://&lt;pi-ip&gt;:8888` in your browser.</li>
+      </ol>
+      <pre class="quick-commands"><code>sudo apt update && sudo apt install -y python3-venv python3-pip git
+mkdir -p ~/pinballctl && cd ~/pinballctl
+python3 -m venv .venv && source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install \"git+https://github.com/VineCode/pinballctl.git@vX.Y.Z\"
+pinballctl start</code></pre>
+      <div class="cta-actions">
+        <a class="btn primary" href="https://github.com/VineCode/pinballctl" target="_blank" rel="noopener noreferrer">
+          <svg class="btn-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M8 0C3.58 0 0 3.67 0 8.19c0 3.61 2.29 6.67 5.47 7.75.4.08.55-.18.55-.39 0-.19-.01-.82-.01-1.49-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.97-.82-1.17-.28-.15-.68-.54-.01-.55.63-.01 1.08.59 1.23.83.72 1.22 1.87.88 2.33.67.07-.53.28-.88.5-1.08-1.78-.21-3.64-.92-3.64-4.07 0-.9.31-1.64.82-2.22-.08-.21-.36-1.05.08-2.19 0 0 .67-.22 2.2.85A7.38 7.38 0 0 1 8 3.38c.68 0 1.37.09 2.01.27 1.53-1.07 2.2-.85 2.2-.85.44 1.14.16 1.98.08 2.19.51.58.82 1.31.82 2.22 0 3.16-1.87 3.86-3.65 4.06.29.26.54.75.54 1.52 0 1.1-.01 1.99-.01 2.26 0 .22.14.48.55.39A8.199 8.199 0 0 0 16 8.19C16 3.67 12.42 0 8 0Z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a class="btn secondary" href="#top">Back to Top</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">&copy; 2026 Pinball CTL. All rights reserved.</p>
+      <nav class="site-footer__nav" aria-label="Footer links">
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="img-modal" class="img-modal" aria-hidden="true" role="dialog" aria-label="Screenshot preview">
+    <div class="img-modal__backdrop"></div>
+    <div class="img-modal__body">
+      <button class="img-modal__close" aria-label="Close preview">Close</button>
+      <img src="" alt="Screenshot preview" class="img-modal__img">
+    </div>
+  </div>
+  <div class="dev-ribbon" aria-hidden="true">In Development</div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
