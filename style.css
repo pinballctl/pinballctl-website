@@ -877,6 +877,10 @@ p {
     padding: 0.85rem 0 0.95rem;
   }
 
+  .site-footer {
+    padding-bottom: 3.35rem;
+  }
+
   .dev-ribbon {
     left: 0;
     bottom: 0;
