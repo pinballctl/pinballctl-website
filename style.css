@@ -24,6 +24,7 @@ html {
 
 body {
   margin: 0;
+  padding-top: 4.15rem;
   overflow-x: hidden;
   color: var(--text);
   font-family: "Space Grotesk", "Segoe UI", -apple-system, system-ui, sans-serif;
@@ -39,8 +40,11 @@ a {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 70;
   display: flex;
   align-items: center;
@@ -211,9 +215,9 @@ p {
 }
 
 .hero-breakout {
-  width: min(100%, 1800px);
-  margin-left: calc(50% - min(100%, 1800px) / 2);
-  margin-right: calc(50% - min(100%, 1800px) / 2);
+  width: min(calc(100% - 2rem), 1800px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .overview-shot img {
@@ -741,6 +745,10 @@ p {
 }
 
 @media (max-width: 920px) {
+  body {
+    padding-top: 3.9rem;
+  }
+
   .site-header {
     padding: 0.8rem 0.9rem;
   }
@@ -813,7 +821,7 @@ p {
   }
 
   .hero-breakout {
-    width: min(calc(100% - 1.1rem), var(--max));
+    width: min(calc(100% - 1.6rem), 1800px);
     margin-left: auto;
     margin-right: auto;
   }
@@ -859,6 +867,10 @@ p {
 @media (max-width: 640px) {
   .section {
     width: min(calc(100% - 1.1rem), var(--max));
+  }
+
+  .hero-breakout {
+    width: min(calc(100% - 1.25rem), 1800px);
   }
 
   .section {
