@@ -11,6 +11,7 @@
   function closeMenu() {
     nav?.classList.remove('open');
     menuToggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
   }
 
   function closeModal() {
@@ -30,6 +31,7 @@
   menuToggle?.addEventListener('click', () => {
     const isOpen = nav?.classList.toggle('open');
     menuToggle?.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('menu-open', !!isOpen);
   });
 
   navLinks.forEach((link) => {
@@ -76,6 +78,21 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeModal();
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!nav || !menuToggle) return;
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+    if (!nav.classList.contains('open')) return;
+    if (nav.contains(target) || menuToggle.contains(target)) return;
+    closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 920) {
       closeMenu();
     }
   });
