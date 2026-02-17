@@ -19,4 +19,4 @@ Main Pinball CTL application and runtime stack:
 
 ## License
 
-See the license in the main project repository unless/until a dedicated license is added here.
+See [LICENCE](./LICENCE).
