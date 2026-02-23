@@ -5,9 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pinball CTL | Build, Test, and Run Homebrew Pinball</title>
   <meta name="description" content="Pinball CTL is a browser-based control platform for homebrew pinball: map hardware, author rules/scoring/lighting/media, and sync deterministic runtime behavior to ESP32-S3.">
-  <link rel="stylesheet" href="./style.css">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="author" content="Pinball CTL">
+  <meta name="theme-color" content="#061021">
+  <meta name="application-name" content="Pinball CTL">
+  <link rel="canonical" href="https://www.pinballctl.com/">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/assets/img/mainimage.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pinball CTL">
+  <meta property="og:title" content="Pinball CTL | Build, Test, and Run Homebrew Pinball">
+  <meta property="og:description" content="Pinball CTL is a browser-based control platform for homebrew pinball: map hardware, author rules/scoring/lighting/media, and sync deterministic runtime behavior to ESP32-S3.">
+  <meta property="og:url" content="https://www.pinballctl.com/">
+  <meta property="og:image" content="https://www.pinballctl.com/assets/img/dashboard.png">
+  <meta property="og:image:alt" content="Pinball CTL dashboard screenshot">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pinball CTL | Build, Test, and Run Homebrew Pinball">
+  <meta name="twitter:description" content="Pinball CTL is a browser-based control platform for homebrew pinball with Pi authoring and ESP32 runtime execution.">
+  <meta name="twitter:image" content="https://www.pinballctl.com/assets/img/dashboard.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.pinballctl.com/#organization",
+          "name": "Pinball CTL",
+          "url": "https://www.pinballctl.com/",
+          "logo": "https://www.pinballctl.com/assets/img/mainimage.png"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.pinballctl.com/#website",
+          "url": "https://www.pinballctl.com/",
+          "name": "Pinball CTL",
+          "description": "Pinball CTL website, product overview, and documentation.",
+          "publisher": {
+            "@id": "https://www.pinballctl.com/#organization"
+          },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Pinball CTL",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS",
+          "url": "https://www.pinballctl.com/"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.pinballctl.com/#webpage",
+          "url": "https://www.pinballctl.com/",
+          "name": "Pinball CTL | Build, Test, and Run Homebrew Pinball",
+          "description": "Pinball CTL is a browser-based control platform for homebrew pinball: map hardware, author rules/scoring/lighting/media, and sync deterministic runtime behavior to ESP32-S3.",
+          "isPartOf": {
+            "@id": "https://www.pinballctl.com/#website"
+          },
+          "about": {
+            "@id": "https://www.pinballctl.com/#organization"
+          },
+          "inLanguage": "en"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5VL56HPZ');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VL56HPZ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Pinball CTL home">
       <span class="brand-dot" aria-hidden="true"></span>
@@ -198,9 +277,12 @@
             <li>PIN safe defaults for boot/fault handling</li>
             <li>Save and sync workflow for deterministic runtime mapping</li>
           </ul>
-          <div class="shot-row">
+          <div class="shot-row two">
             <button type="button" class="shot shot-click" data-full="./assets/img/feature-hardware.png" aria-label="Open Hardware screenshot">
               <img src="./assets/img/feature-hardware.png" alt="Hardware module">
+            </button>
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-hardware-function-dropdown.png" aria-label="Open Hardware function dropdown screenshot">
+              <img src="./assets/img/feature-hardware-function-dropdown.png" alt="Hardware function dropdown open">
             </button>
           </div>
         </article>
@@ -379,8 +461,7 @@ pinballctl start</code></pre>
     <div class="site-footer__inner">
       <p class="site-footer__copy">&copy; 2026 Pinball CTL. All rights reserved.</p>
       <nav class="site-footer__nav" aria-label="Footer links">
-        <a href="./privacy.html">Privacy</a>
-        <a href="./terms.html">Terms</a>
+        <a href="https://docs.pinballctl.com" target="_blank" rel="noopener noreferrer">Docs</a>
         <a href="./contact.html">Contact</a>
       </nav>
     </div>
@@ -395,15 +476,7 @@ pinballctl start</code></pre>
   </div>
   <div class="dev-ribbon" aria-hidden="true">In Development</div>
 
-  <script src="./main.js"></script>
+  <script src="./assets/js/main.js"></script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8YD2KZZ9W"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-V8YD2KZZ9W');
-  </script>
 </body>
 </html>

@@ -196,6 +196,16 @@ h3 {
   margin-top: 0;
 }
 
+.legal-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.legal-page main {
+  flex: 1 0 auto;
+}
+
 p {
   margin: 0;
 }
@@ -456,6 +466,7 @@ p {
 .shot.frame img {
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  object-position: top;
 }
 
 .shot-caption {
