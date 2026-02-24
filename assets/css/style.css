@@ -714,7 +714,7 @@ p {
   justify-content: center;
   text-align: center;
   transform: none;
-  padding: 0.52rem 1.1rem calc(0.52rem + env(safe-area-inset-bottom)) 0.9rem;
+  padding: 0.52rem 1.1rem 0.52rem 0.9rem;
   border: 1px solid rgba(0, 0, 0, 0.28);
   border-left: 0;
   border-bottom: 0;
@@ -906,7 +906,7 @@ p {
     width: 290px;
     transform: none;
     font-size: 0.72rem;
-    padding: 0.4rem 0.95rem calc(0.4rem + env(safe-area-inset-bottom)) 0.75rem;
+    padding: 0.4rem 0.95rem 0.4rem 0.75rem;
   }
 
   .dev-ribbon::after {
