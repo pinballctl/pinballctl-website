@@ -706,7 +706,7 @@ p {
 .dev-ribbon {
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: max(0px, env(safe-area-inset-bottom));
   z-index: 95;
   width: 360px;
   display: inline-flex;
@@ -901,7 +901,7 @@ p {
   }
 
   .site-footer {
-    padding-bottom: 3.35rem;
+    padding-bottom: 0;
   }
 
   .dev-ribbon {
