@@ -706,7 +706,7 @@ p {
 .dev-ribbon {
   position: fixed;
   left: 0;
-  bottom: max(0px, env(safe-area-inset-bottom));
+  bottom: 0;
   z-index: 95;
   width: 360px;
   display: inline-flex;
@@ -714,7 +714,7 @@ p {
   justify-content: center;
   text-align: center;
   transform: none;
-  padding: 0.52rem 1.1rem 0.52rem 0.9rem;
+  padding: 0.52rem 1.1rem calc(0.52rem + env(safe-area-inset-bottom)) 0.9rem;
   border: 1px solid rgba(0, 0, 0, 0.28);
   border-left: 0;
   border-bottom: 0;
@@ -728,17 +728,13 @@ p {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
   pointer-events: none;
   overflow: hidden;
+  transform: translateZ(0);
+  will-change: transform;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 24px) 50%, 100% 100%, 0 100%);
 }
 
 .dev-ribbon::after {
-  content: "";
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  width: 24px;
-  height: calc(100% + 2px);
-  background: #05070d;
-  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  content: none;
 }
 
 @media (max-width: 1120px) {
@@ -910,10 +906,10 @@ p {
     width: 290px;
     transform: none;
     font-size: 0.72rem;
-    padding: 0.4rem 0.95rem 0.4rem 0.75rem;
+    padding: 0.4rem 0.95rem calc(0.4rem + env(safe-area-inset-bottom)) 0.75rem;
   }
 
   .dev-ribbon::after {
-    width: 18px;
+    content: none;
   }
 }
