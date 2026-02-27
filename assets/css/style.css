@@ -397,6 +397,10 @@ p {
 .module-card:nth-child(6)::before { background: linear-gradient(180deg, #b8ff6a, rgba(184, 255, 106, 0.25)); }
 .module-card:nth-child(7)::before { background: linear-gradient(180deg, #9ea8ff, rgba(158, 168, 255, 0.25)); }
 .module-card:nth-child(8)::before { background: linear-gradient(180deg, #ffb3e0, rgba(255, 179, 224, 0.25)); }
+.module-card:nth-child(9)::before { background: linear-gradient(180deg, #5b9bd5, rgba(91, 155, 213, 0.25)); }
+.module-card:nth-child(10)::before { background: linear-gradient(180deg, #70ad47, rgba(112, 173, 71, 0.25)); }
+.module-card:nth-child(11)::before { background: linear-gradient(180deg, #ed7d31, rgba(237, 125, 49, 0.25)); }
+.module-card:nth-child(12)::before { background: linear-gradient(180deg, #ffc000, rgba(255, 192, 0, 0.25)); }
 
 .module-card h3 {
   padding-left: 0.35rem;
