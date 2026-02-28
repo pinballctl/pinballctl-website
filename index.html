@@ -197,14 +197,14 @@
 
         <article class="module-card">
           <h3>Playfield</h3>
-          <p>Visual table authoring and simulation workflows for placement, interaction, and fast validation.</p>
+          <p>Visual table layout authoring for component placement, sizing, alignment, and keyboard mapping.</p>
           <ul>
             <li>Stage tab for visual editing and inspector controls</li>
             <li>Options tab for dimensions and layout actions</li>
-            <li>Keyboard/event testing before live deployment</li>
+            <li>Keyboard mapping for component-level trigger shortcuts</li>
             <li>Components panel for hardware grouping and quick selection</li>
             <li>Inspector panel with per-component detail and tuning fields</li>
-            <li>Preview feedback to validate placement and interaction flow</li>
+            <li>Scale/rotation and color tuning for precise table layout design</li>
           </ul>
           <div class="shot-row four">
             <button type="button" class="shot shot-click" data-full="./assets/img/feature-layout-stage.png" aria-label="Open Playfield stage screenshot">
@@ -408,6 +408,29 @@
             <button type="button" class="shot shot-click" data-full="./assets/img/feature-servicelog-edit.png" aria-label="Open Service Log edit screenshot">
               <img src="./assets/img/feature-servicelog-edit.png" alt="Service Log edit workflow">
             </button>
+          </div>
+        </article>
+
+        <article class="module-card module-card-wide">
+          <h3>Live Preview</h3>
+          <div class="module-card-split">
+            <div class="module-card-split-copy">
+              <p>Read-only runtime emulator for validating real-time table behavior and display output from one view.</p>
+              <ul>
+                <li>Live stage reacts to incoming hardware events and rule outputs</li>
+                <li>Right-click component context menu to fire available trigger actions</li>
+                <li>Combined button action option for <code>PRESSED + RELEASED</code> testing</li>
+                <li>Right column display cards render active media runtime scenes live</li>
+                <li>Live score updates are reflected on media overlays during gameplay</li>
+                <li>Sound cues are played in response to configured rule/event actions</li>
+                <li>Keyboard shortcuts from Playfield keymap are available for fast testing</li>
+              </ul>
+            </div>
+            <div class="module-card-split-media">
+              <button type="button" class="shot frame shot-click" data-full="./assets/img/feature-live-view.png" aria-label="Open Live Preview screenshot">
+                <img src="./assets/img/feature-live-view.png" alt="Live Preview module showing runtime table and display cards">
+              </button>
+            </div>
           </div>
         </article>
       </div>

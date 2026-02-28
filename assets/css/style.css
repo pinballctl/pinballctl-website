@@ -374,6 +374,47 @@ p {
   height: 100%;
 }
 
+.module-card.module-card-wide {
+  grid-column: 1 / -1;
+}
+
+.module-card-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.module-card-split-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-right: 0.25rem;
+}
+
+.module-card-split-copy p {
+  margin: 0;
+}
+
+.module-card-split-copy ul {
+  margin-top: 0.1rem;
+  line-height: 1.42;
+  gap: 0.42rem;
+}
+
+.module-card-split-media {
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+}
+
+.module-card-split-media .shot {
+  min-height: 380px;
+  height: 100%;
+  width: 100%;
+}
+
 .module-card::before {
   content: "";
   position: absolute;
@@ -752,6 +793,14 @@ p {
 
   .shot-row.four {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .module-card-split {
+    grid-template-columns: 1fr;
+  }
+
+  .module-card-split-media .shot {
+    min-height: 280px;
   }
 }
 
