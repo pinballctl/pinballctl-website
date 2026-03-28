@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pinball CTL | Build, Test, and Run Homebrew Pinball</title>
-  <meta name="description" content="Pinball CTL is a browser-based control platform for homebrew pinball: map hardware, author rules/scoring/lighting/media, and sync deterministic runtime behavior to ESP32-S3.">
+  <title>Pinball Controller Software for Homebrew Machines | Pinball CTL</title>
+  <meta name="description" content="Pinball CTL is pinball controller software for homebrew machines. Map hardware, build rules, scoring, lighting, and Godot media scenes, then run your pinball controller stack from Raspberry Pi and ESP32-S3.">
+  <meta name="keywords" content="pinball controller, pinball controller software, homebrew pinball controller, pinball machine controller, pinball control system, ESP32 pinball, Raspberry Pi pinball">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="author" content="Pinball CTL">
   <meta name="theme-color" content="#061021">
@@ -15,14 +16,14 @@
   <link rel="shortcut icon" href="/assets/img/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Pinball CTL">
-  <meta property="og:title" content="Pinball CTL | Build, Test, and Run Homebrew Pinball">
-  <meta property="og:description" content="Pinball CTL is a browser-based control platform for homebrew pinball: map hardware, author rules/scoring/lighting/media, and sync deterministic runtime behavior to ESP32-S3.">
+  <meta property="og:title" content="Pinball Controller Software for Homebrew Machines | Pinball CTL">
+  <meta property="og:description" content="Pinball CTL is pinball controller software for homebrew machines, combining browser-based authoring on Raspberry Pi with deterministic ESP32-S3 runtime control.">
   <meta property="og:url" content="https://www.pinballctl.com/">
   <meta property="og:image" content="https://www.pinballctl.com/assets/img/dashboard.webp">
   <meta property="og:image:alt" content="Pinball CTL dashboard screenshot">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pinball CTL | Build, Test, and Run Homebrew Pinball">
-  <meta name="twitter:description" content="Pinball CTL is a browser-based control platform for homebrew pinball with Pi authoring and ESP32 runtime execution.">
+  <meta name="twitter:title" content="Pinball Controller Software for Homebrew Machines | Pinball CTL">
+  <meta name="twitter:description" content="Pinball CTL is pinball controller software for homebrew machines with Raspberry Pi authoring, ESP32-S3 runtime control, and Godot-powered media scenes.">
   <meta name="twitter:image" content="https://www.pinballctl.com/assets/img/dashboard.webp">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
@@ -52,16 +53,18 @@
         {
           "@type": "SoftwareApplication",
           "name": "Pinball CTL",
-          "applicationCategory": "DeveloperApplication",
+          "alternateName": "Pinball Controller Software",
+          "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Linux, macOS",
-          "url": "https://www.pinballctl.com/"
+          "url": "https://www.pinballctl.com/",
+          "description": "Pinball controller software for homebrew pinball machines with hardware mapping, rules authoring, scoring, lighting, and Godot media control."
         },
         {
           "@type": "WebPage",
           "@id": "https://www.pinballctl.com/#webpage",
           "url": "https://www.pinballctl.com/",
-          "name": "Pinball CTL | Build, Test, and Run Homebrew Pinball",
-          "description": "Pinball CTL is a browser-based control platform for homebrew pinball: map hardware, author rules/scoring/lighting/media, and sync deterministic runtime behavior to ESP32-S3.",
+          "name": "Pinball Controller Software for Homebrew Machines | Pinball CTL",
+          "description": "Pinball CTL is pinball controller software for homebrew machines with browser-based authoring, ESP32-S3 runtime control, and Godot media playback.",
           "isPartOf": {
             "@id": "https://www.pinballctl.com/#website"
           },
@@ -100,11 +103,10 @@
     <section id="overview" class="hero section hero-breakout">
       <div class="hero-copy">
         <p class="kicker hero-kicker">Homebrew Pinball Control Platform</p>
-        <h1>Configure hardware, author gameplay, and run displays from one interface.</h1>
+        <h1>Pinball controller software for building and running homebrew machines.</h1>
         <p class="lead">
-          Pinball CTL combines a Raspberry Pi authoring/orchestration layer with an ESP32-S3 real-time runtime layer.
-          You map hardware, build rules, author scoring and lighting, and manage media displays from a browser UI,
-          then sync to ESP for deterministic runtime behavior.
+          Pinball CTL combines a Raspberry Pi authoring and orchestration layer with an ESP32-S3 real-time runtime layer.
+          You map hardware, build rules, scoring, lighting, and Godot media scenes from a browser UI, then sync to a pinball controller runtime designed for predictable machine behavior.
         </p>
         <div class="hero-pills">
           <span>Raspberry Pi 5</span>
@@ -245,27 +247,27 @@
 
         <article class="module-card">
           <h3>Media</h3>
-          <p>Video/overlay scene authoring with display-targeted runtime and kiosk launch controls.</p>
+          <p>Godot-powered scene authoring for videos, images, text, and packaged Godot content across your display targets.</p>
           <ul>
-            <li>Stage, Library, Displays, Runtime tabs</li>
-            <li>Overlay composition and playback preview</li>
-            <li>Fullscreen and small-window launch modes</li>
-            <li>Target scenes to identifies displays. e.g. Backboard or in table</li>
-            <li>Runtime visibility for active sessions and control actions</li>
-            <li>Asset-driven workflow from upload to live display launch</li>
+            <li>Scenes, Library, Fonts, Displays, Settings, and Runtime tabs</li>
+            <li>Layer-based authoring for text, image, video, and Godot scene content</li>
+            <li>Godot preview and launch workflow with fullscreen or windowed runtime</li>
+            <li>Custom fonts, live score text, and display-targeted scene control</li>
+            <li>Upload `.pck` scene packs for layered or primary full-window playback</li>
+            <li>Runtime visibility for live launches, engine status, and stop actions</li>
           </ul>
           <div class="shot-row four">
-            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-stage.webp" aria-label="Open Media stage screenshot">
-              <img src="./assets/img/feature-media-stage.webp" alt="Media stage tab" loading="lazy" decoding="async" width="1440" height="900">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-scenes.webp" aria-label="Open Media scenes screenshot">
+              <img src="./assets/img/feature-media-scenes.webp" alt="Media Scenes tab" loading="lazy" decoding="async" width="1440" height="900">
             </button>
-            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-library.webp" aria-label="Open Media library screenshot">
-              <img src="./assets/img/feature-media-library.webp" alt="Media library tab" loading="lazy" decoding="async" width="1440" height="900">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-library-current.webp" aria-label="Open Media library screenshot">
+              <img src="./assets/img/feature-media-library-current.webp" alt="Media Library tab" loading="lazy" decoding="async" width="1440" height="900">
             </button>
-            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-displays.webp" aria-label="Open Media displays screenshot">
-              <img src="./assets/img/feature-media-displays.webp" alt="Media displays tab" loading="lazy" decoding="async" width="1440" height="900">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-settings.webp" aria-label="Open Media settings screenshot">
+              <img src="./assets/img/feature-media-settings.webp" alt="Media Settings tab" loading="lazy" decoding="async" width="1440" height="900">
             </button>
-            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-runtime.webp" aria-label="Open Media runtime screenshot">
-              <img src="./assets/img/feature-media-runtime.webp" alt="Media runtime tab" loading="lazy" decoding="async" width="1440" height="900">
+            <button type="button" class="shot shot-click" data-full="./assets/img/feature-media-runtime-current.webp" aria-label="Open Media runtime screenshot">
+              <img src="./assets/img/feature-media-runtime-current.webp" alt="Media Runtime tab" loading="lazy" decoding="async" width="1440" height="900">
             </button>
           </div>
         </article>
@@ -481,7 +483,7 @@
           <h3>Runtime Dependencies</h3>
           <ul>
             <li>Bridge process and Pi services running</li>
-            <li>Chromium runtime for media display mode</li>
+            <li>Godot runtime installed for media playback and scene rendering</li>
             <li>Installed tooling visible in Dashboard Dependencies</li>
           </ul>
         </article>
